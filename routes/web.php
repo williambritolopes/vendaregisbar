@@ -20,6 +20,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::Resource('/home/product', 'ProductController')->middleware('auth');
+Route::Resource('/home/category', 'CategoryController')->middleware('auth');
+Route::Resource('/home/status', 'StatusController')->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('login/{provider}', 'SocialController@redirect');
